@@ -119,28 +119,32 @@ function App() {
             {
               name: "property",
               icon: <VillaOutlined />,
-              list: MuiInferencer,
+              show: PropertyDetails,
+              create: CreateProperty,
+              edit: EditProperty,
+              list: AllProperties,
             },
             {
               name: "agent",
               icon: <PeopleAltOutlined />,
-              list: MuiInferencer,
+              list: Agents,
+              show: AgentProfile,
             },
             {
               name: "review",
               icon: <StarOutlineRounded />,
-              list: MuiInferencer,
+              list: Home,
             },
             {
               name: "message",
               icon: <ChatBubbleOutline />,
-              list: MuiInferencer,
+              list: Home,
             },
             {
               name: "my-profile",
               icon: <AccountCircleOutlined />,
               options: { label: "My Profile" },
-              list: MuiInferencer,
+              list: MyProfile,
             },
           ]}
           Title={Title}
