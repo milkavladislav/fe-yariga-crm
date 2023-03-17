@@ -215,7 +215,7 @@ const PropertyDetails = () => {
               </Stack>
             </Box>
             <Box mt={2} width="350px">
-              <img src={map} width="100%" />
+              <img src={map} width="100%" alt="map" />
               <Button variant="contained" color="primary" fullWidth>
                 Book Now
               </Button>

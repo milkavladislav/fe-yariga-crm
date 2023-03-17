@@ -1,7 +1,5 @@
 import React from "react";
 import { Box, Stack, Typography } from "@pankod/refine-mui";
-import { PieChartProps } from "interfaces/home";
-import ReactApexChart from "react-apexcharts";
 import { propertyReferralsInfo } from "constans";
 
 interface ProgressBarProps {
