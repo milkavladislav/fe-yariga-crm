@@ -9,7 +9,6 @@ import map from "../assets/map.png";
 const PropertyDetails = () => {
   const navigate = useNavigate();
   const { data: user } = useGetIdentity();
-  const { data: property } = useGetIdentity();
   const { id } = useParams();
   const { mutate } = useDelete();
   const { queryResult } = useShow();
@@ -21,7 +20,7 @@ const PropertyDetails = () => {
   if (isLoading) return <div>Loading...</div>;
   if (isError) return <div>Error</div>;
 
-  const isCurrentUser = user.email !== propertyDetails.creator.email;
+  const isCurrentUser = user.email === propertyDetails.creator.email;
 
   const handleDeleteProperty = () => {
     const response = window.confirm(
@@ -168,7 +167,7 @@ const PropertyDetails = () => {
                   fontWeight={700}
                   mt={1}
                 >
-                  5 Properties
+                  {propertyDetails.creator.allProperties.length || 1} Properties
                 </Typography>
                 <Stack mt={2} direction="row" alignItems="center" gap={0.5}>
                   {isCurrentUser ? (
@@ -177,6 +176,9 @@ const PropertyDetails = () => {
                         variant="contained"
                         color="primary"
                         startIcon={<Edit />}
+                        onClick={() =>
+                          navigate(`/properties/edit/${propertyDetails._id}`)
+                        }
                         style={{ width: "150px" }}
                       >
                         Edit
@@ -213,7 +215,7 @@ const PropertyDetails = () => {
               </Stack>
             </Box>
             <Box mt={2} width="350px">
-              <img src={map} width="100%"/>
+              <img src={map} width="100%" />
               <Button variant="contained" color="primary" fullWidth>
                 Book Now
               </Button>
